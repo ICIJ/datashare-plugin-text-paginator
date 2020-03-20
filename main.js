@@ -17,7 +17,7 @@ document.addEventListener('datashare:ready', ({ detail }) => {
       computed: {
         pipelineName () {
           return this.$config.get('sentenceCasePipelineName', 'extracted-text-sentence-case')
-        }
+        },
         // This computed property will be used by as v-model of the toggler input
         toggler: {
           set (active) {
