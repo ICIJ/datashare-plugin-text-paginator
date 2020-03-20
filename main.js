@@ -12,7 +12,7 @@ document.addEventListener('datashare:ready', ({ detail }) => {
   // Register the hook only for the given project
   detail.core.registerHookForProject(project, {
     name: 'sentence-case-toggler',
-    target: 'document.content.body:before',
+    target: 'document.content.ner:after',
     definition: {
       computed: {
         pipelineName () {
@@ -41,7 +41,7 @@ document.addEventListener('datashare:ready', ({ detail }) => {
           this.$core.unregisterPipeline(this.pipelineName)
         }
       },
-      template: `<div class="document__content__sentence-case float-right p-3">
+      template: `<div class="document__content__sentence-case py-1 font-weight-bold mb-3">
         <b-form-checkbox v-model="toggler" switch>
           Improve readability
         </b-form-checkbox>
