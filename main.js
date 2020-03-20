@@ -31,7 +31,7 @@ document.addEventListener('datashare:ready', ({ detail }) => {
       },
       methods: {
         registerPipeline () {
-          this.$core.registerPipelineForProject(project, { 
+          this.$core.registerPipelineForProject(project, {
             name: this.pipelineName,
             category: 'extracted-text:post',
             type: toSentenceCase
