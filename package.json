@@ -1,0 +1,22 @@
+{
+  "name": "@icij/datashare-plugin-sentence-case",
+  "version": "0.0.0",
+  "description": "A Datashare Plugin to add a sentence case button to the extracted text view.",
+  "main": "dist/index.umd.min.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "private": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "vue build --target lib --name index",
+    "prepublishOnly": "yarn build"
+  },
+  "author": "pirhoo",
+  "license": "ISC",
+  "vue": {
+    "filenameHashing": false
+  },
+  "files": [
+    "dist/{css,js}/*.{css,js,map}"
+  ]
+}
