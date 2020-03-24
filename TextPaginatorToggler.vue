@@ -22,9 +22,11 @@
       // Extract the page number for the current index
       const page = Number(allPages[index].replace(/\D+/, ''))
       // Each path much have its own id
-      return `<div class="document-content__body__paginated__page" id="${anchorId(page)}" data-page="${page}">
-        ${content}
-      </div>`
+      return `
+        <div class="document-content__body__paginated__page" id="${anchorId(page)}" data-page="${page}">
+          ${content}
+        </div>
+      `
     })
 
     return `
@@ -61,7 +63,7 @@
     },
     methods: {
       registerPipeline () {
-        const project = this.$config.get('sentenceCaseProject', 'local-datashare')
+        const project = this.$config.get('textPaginatorProject', 'local-datashare')
         this.$core.registerPipelineForProject(project, {
           name: this.pipelineName,
           category: 'extracted-text:post',
@@ -83,9 +85,9 @@
 </script>
 
 <template>
-  <div class="document__content__text-paginator py-1 font-weight-bold mb-3">
+  <div class="document__content__text-paginator py-1 font-weight-bold">
     <b-form-checkbox v-model="doDetect" switch>
-      Auto-detect pages in text
+      Detect pages
     </b-form-checkbox>
     <b-form-select @change="selectePage" :value="null" size="sm" class="mt-3 position-top position-sticky" :disabled="!doDetect" v-if="supportsScrollInView && pages.length">
       <b-form-select-option :value="null">
@@ -102,15 +104,15 @@
   .document-content__body__paginated {
     background: #f8f9fa;
     box-shadow: 0 0 2rem 2rem #f8f9fa;
+    clear: both;
   }
 
   .document-content__body__paginated__page {
-    clear: right;
     box-shadow: 0 0.5rem 1.5rem 0 rgba(0, 0, 0, 0.2);
     padding: 1rem 15px;
     margin-bottom: 2rem;
     position: relative;
-    z-index: 10;
+    z-index: 0;
     background: #fff;
   }
 
