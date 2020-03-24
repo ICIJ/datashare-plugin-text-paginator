@@ -1,7 +1,7 @@
 {
-  "name": "@icij/datashare-plugin-sentence-case",
+  "name": "@icij/datashare-plugin-text-paginator",
   "version": "0.0.0",
-  "description": "A Datashare Plugin to add a sentence case button to the extracted text view.",
+  "description": "A Datashare Plugin to detect pages in text to display them nicely.",
   "main": "dist/index.umd.min.js",
   "style": "dist/index.css",
   "dependencies": {},
