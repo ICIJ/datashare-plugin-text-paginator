@@ -87,7 +87,7 @@
     <b-form-checkbox v-model="doDetect" switch>
       Auto-detect pages in text
     </b-form-checkbox>
-    <b-form-select @change="selectePage" :value="null" size="sm" class="mt-3 position-top position-sticky" :disabled="!doDetect" v-if="supportsScrollInView">
+    <b-form-select @change="selectePage" :value="null" size="sm" class="mt-3 position-top position-sticky" :disabled="!doDetect" v-if="supportsScrollInView && pages.length">
       <b-form-select-option :value="null">
         Go to...
       </b-form-select-option>
