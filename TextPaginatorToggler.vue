@@ -89,7 +89,7 @@
     <b-form-checkbox v-model="doDetect" switch>
       Detect pages
     </b-form-checkbox>
-    <b-form-select @change="selectePage" :value="null" size="sm" class="mt-3 position-top position-sticky" :disabled="!doDetect" v-if="supportsScrollInView && pages.length">
+    <b-form-select @change="selectePage" :value="null" size="sm" class="mt-1 position-top position-sticky" :disabled="!doDetect" v-if="supportsScrollInView && pages.length">
       <b-form-select-option :value="null">
         Go to...
       </b-form-select-option>
@@ -101,6 +101,20 @@
 </template>
 
 <style>
+  /* .document-content__toolbox + div {
+    float: none;
+  }
+
+  .document-content__toolbox + div .hook {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+  .document-content__toolbox + div .hook > * {
+    margin-left: 1.5rem;
+  } */
+
   .document-content__body__paginated {
     background: #f8f9fa;
     box-shadow: 0 0 2rem 2rem #f8f9fa;
