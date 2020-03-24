@@ -13,6 +13,10 @@
   function autoDetectPages (extractedText = '') {
     const pages = extractedText.split(/<p>Page \d+<\/p>/igm)
     const allPages = listPages(extractedText, true)
+    // No pages, nothing to do
+    if (allPages.length === 0) {
+      return extractedText
+    }
     // Wrapper each page in a div with the right id
     const wrappedPages = pages.map((content, index) => {
       // Not in page
@@ -86,17 +90,22 @@
 
 <template>
   <div class="document__content__text-paginator py-1 font-weight-bold ml-3">
-    <b-form-checkbox v-model="doDetect" switch>
-      Detect pages
+    <b-form-checkbox disabled switch v-if="!pages.length">
+      No pages detected
     </b-form-checkbox>
-    <b-form-select @change="selectePage" :value="null" size="sm" class="mt-1 position-top position-sticky" :disabled="!doDetect" v-if="supportsScrollInView && pages.length">
-      <b-form-select-option :value="null">
-        Go to...
-      </b-form-select-option>
-      <b-form-select-option v-for="page in pages" :key="page" :value="page">
-        {{ page }}
-      </b-form-select-option>
-    </b-form-select>
+    <div v-else>
+      <b-form-checkbox v-model="doDetect" switch>
+        Detect pages
+      </b-form-checkbox>
+      <b-form-select @change="selectePage" :value="null" size="sm" class="mt-1 position-top position-sticky" :disabled="!doDetect" v-if="supportsScrollInView">
+        <b-form-select-option :value="null">
+          Go to...
+        </b-form-select-option>
+        <b-form-select-option v-for="page in pages" :key="page" :value="page">
+          {{ page }}
+        </b-form-select-option>
+      </b-form-select>
+    </div>
   </div>
 </template>
 
