@@ -85,7 +85,7 @@
 </script>
 
 <template>
-  <div class="document__content__text-paginator py-1 font-weight-bold">
+  <div class="document__content__text-paginator py-1 font-weight-bold ml-3">
     <b-form-checkbox v-model="doDetect" switch>
       Detect pages
     </b-form-checkbox>
@@ -101,19 +101,6 @@
 </template>
 
 <style>
-  /* .document-content__toolbox + div {
-    float: none;
-  }
-
-  .document-content__toolbox + div .hook {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-  }
-
-  .document-content__toolbox + div .hook > * {
-    margin-left: 1.5rem;
-  } */
 
   .document-content__body__paginated {
     background: #f8f9fa;
