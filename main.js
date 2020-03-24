@@ -8,6 +8,7 @@ document.addEventListener('datashare:ready', ({ detail }) => {
   detail.core.registerHookForProject(project, {
     name: 'text-paginator-toggler',
     target: 'document.content.ner:after',
+    order: 100,
     definition: TextPaginatorToggler
   })
 })
