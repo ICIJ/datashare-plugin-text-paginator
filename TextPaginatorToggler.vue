@@ -77,7 +77,7 @@
       unregisterPipeline () {
         this.$core.unregisterPipeline(this.pipelineName)
       },
-      selectePage (page) {
+      selectPage (page) {
         const goToIndex = Number(page.replace(/\D*/, ''))
         const goToAnchor = `#${anchorId(goToIndex)}`
         const container = this.$el.closest('.overflow-auto') || document.body
@@ -97,7 +97,7 @@
       <b-form-checkbox v-model="doDetect" switch class="text-nowrap" title="Automatically display separate pages but only when the pages' numbers are explicitly mentioned in the document" v-b-tooltip>
         Highlight pages
       </b-form-checkbox>
-      <b-form-select @change="selectePage" :value="null" size="sm" class="mt-1 ml-3 position-top position-sticky" :disabled="!doDetect" v-if="supportsScrollInView">
+      <b-form-select @change="selectPage" :value="null" size="sm" class="mt-1 ml-3 position-top position-sticky" :disabled="!doDetect" v-if="supportsScrollInView">
         <b-form-select-option :value="null">
           Go to...
         </b-form-select-option>
