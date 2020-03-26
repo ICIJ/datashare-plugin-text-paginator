@@ -91,13 +91,13 @@
 <template>
   <div class="document__content__text-paginator py-1 font-weight-bold ml-3">
     <b-form-checkbox disabled switch v-if="!pages.length">
-      No pages detected
+      Highlight pages (none detected)
     </b-form-checkbox>
-    <div v-else>
-      <b-form-checkbox v-model="doDetect" switch>
-        Detect pages
+    <div v-else class="d-flex flex-row align-items-center">
+      <b-form-checkbox v-model="doDetect" switch class="text-nowrap">
+        Highlight pages
       </b-form-checkbox>
-      <b-form-select @change="selectePage" :value="null" size="sm" class="mt-1 position-top position-sticky" :disabled="!doDetect" v-if="supportsScrollInView">
+      <b-form-select @change="selectePage" :value="null" size="sm" class="mt-1 ml-3 position-top position-sticky" :disabled="!doDetect" v-if="supportsScrollInView">
         <b-form-select-option :value="null">
           Go to...
         </b-form-select-option>
@@ -110,59 +110,34 @@
 </template>
 
 <style>
-
   .document-content__body__paginated {
     background: #f8f9fa;
-    box-shadow: 0 0 2rem 2rem #f8f9fa;
-    clear: both;
+    box-shadow: 0 0 3rem 3rem #f8f9fa;
   }
 
   .document-content__body__paginated__page {
-    box-shadow: 0 0.5rem 1.5rem 0 rgba(0, 0, 0, 0.2);
     padding: 1rem 15px;
-    margin-bottom: 2rem;
+    margin: 0 -1rem 3rem;
+    border-top: 1px solid #ced4da;
+    border-bottom: 2px solid #ced4da;
+    box-shadow: 0 3rem 0 3rem #f8f9fa;
     position: relative;
     z-index: 0;
     background: #fff;
   }
 
   .document-content__body__paginated__page[data-page]:after {
-    content: "— Page " attr(data-page) " —";
+    content: "Page " attr(data-page);
     position: sticky;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
-    background: #f8f9fa;
     text-transform: uppercase;
     font-weight: bold;
-    display: block;
-    padding: 0.5rem;
-  }
-
-  .document-content__body__paginated__page__footer span {
-    position: relative;
-  }
-
-  .document-content__body__paginated__page__footer span:before,
-  .document-content__body__paginated__page__footer span:after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    height: 4px;
-    width: 100vw;
-    margin: 0 0.5em;
-    border: solid 1px currentColor;
-    border-right: 0;
-    border-left: 0;
-    transform: translateY(-50%);
-  }
-
-  .document-content__body__paginated__page__footer span:before {
-    right: 100%;
-  }
-
-  .document-content__body__paginated__page__footer span:after {
-    left: 100%;
+    padding: 0.25rem 0.5rem;
+    color: var(--light);
+    background: var(--secondary);
+    border-radius: 1rem;
   }
 </style>
