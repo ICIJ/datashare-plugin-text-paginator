@@ -81,9 +81,12 @@
         const goToIndex = Number(page.replace(/\D*/, ''))
         const goToAnchor = `#${anchorId(goToIndex)}`
         const container = this.$el.closest('.overflow-auto') || document.body
-        // Use the build-in scrollIntoView method
-        container.querySelector(goToAnchor).scrollIntoView({ behavior: 'smooth' })
-      }
+        // Use the build-in scrollIntoView method.
+        // There is currently a bug with chrome who doesn't like the smooth transition.
+        const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor)
+        const behavior = isChrome ? 'instant' : 'smooth'
+        container.querySelector(goToAnchor).scrollIntoView({ behavior })
+      },
     }
   }
 </script>
