@@ -1,6 +1,6 @@
 {
   "name": "@icij/datashare-plugin-text-paginator",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "A Datashare Plugin to detect pages in text to display them nicely.",
   "main": "dist/index.umd.min.js",
   "style": "dist/index.css",
