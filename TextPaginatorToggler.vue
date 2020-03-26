@@ -94,7 +94,7 @@
       Highlight pages (none detected)
     </b-form-checkbox>
     <div v-else class="d-flex flex-row align-items-center">
-      <b-form-checkbox v-model="doDetect" switch class="text-nowrap">
+      <b-form-checkbox v-model="doDetect" switch class="text-nowrap" title="Automatically display separate pages but only when the pages' numbers are explicitly mentioned in the document" v-b-tooltip>
         Highlight pages
       </b-form-checkbox>
       <b-form-select @change="selectePage" :value="null" size="sm" class="mt-1 ml-3 position-top position-sticky" :disabled="!doDetect" v-if="supportsScrollInView">
